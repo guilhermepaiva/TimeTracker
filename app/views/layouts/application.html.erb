@@ -8,7 +8,25 @@
 </head>
 <body>
 
-<%= yield %>
+
+<header class="container">
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<%= link_to "Time Tracker", root_path, class: "navbar-brand" %>
+		</div>
+	</nav>
+</header>
+
+<div class="container">
+	<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end %>
+
+<div class="row">
+	<%= yield %>
+</div>
+
+</div>
 
 </body>
 </html>
